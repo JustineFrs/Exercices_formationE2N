@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MYSQL - PARTIE #2</title>
+  </head>
+  <body>
+    <h1>Exercices PARTIE #2 Mysql</h1>
+
+    <h2>Exo 1</h2>
+    <p>Insérer dans la table clients Juliette Masson qui a une carte de fidélité et qui a une réduction de 0,5.
+      Le nom des colonnes doit être présent dans la requête.</p>
+      <p>
+        USE colysee
+        INSERT INTO clients
+        <!--Methode MySQL-->
+        SET nom='Masson', prenom='Juliette', carte_fidelite='1', reduction='0.5';
+        <!--OU-->
+        VALUES ('Masson','Juliette',1,0.5);
+      </p>
+
+
+      <h2>Exo 2</h2>
+      <p>  Insérer dans la table spectacles les données suivantes :
+
+        Intitulé : Truth About Love Tour
+        Artiste : Pink
+        Type : Musique
+        Genre : Variété pop internationale
+        Date : 10/10/2016
+        Heure : 21h00
+        Durée : 2h30
+
+        ID de la salle : 5
+
+        Intitulé : Kean
+        Artiste : Cie « Les scènes de l’Oise »
+        Type : Théâtre
+        Genre : Drame
+        Date : 25/02/2017
+        Heure : 20H30
+        Durée : 2h00
+        ID de la salle : 4
+
+        Le nom des colonnes doit être présent dans la requête.</p>
+        <p>
+          INSERT INTO spectacles (intitule, artiste, type, genre, date, heure, duree, salle_id)
+          VALUES ('Truth About Love Tour', 'Pink', 'Musique', 'Variété pop internationale', '2016/10/10', '21:00:00', '2:30:00', '5'),
+          ('Kean', 'Cie « Les scènes de l’Oise »', 'Théâtre', 'Drame', '2017/02/25', '20:30:00', '2:00:00', '4');
+        </p>
+
+
+        <h2>Exo 3</h2>
+        <p>Insérer 5 salles dans la table salles.
+          La salle 1 a 45 sièges disponibles,
+          la salle 2 en a 50,
+          la salle 3 en a 55,
+          la salle 4 en a 60
+          et la salle 5 en a 65.
+          Le nom des colonnes ne doit pas apparaître dans la requête.</p>
+          <p>
+            <!--Inserer colone salle-->
+            INSERT INTO salles
+            VALUES (NULL, 45),
+            (NULL, 50),
+            (NULL, 55),
+            (NULL, 60),
+            (NULL, 65);
+          </p>
+
+
+          <h2>Exo 4</h2>
+          <p>Insérer les données de clients.csv dans la table clients.</p>
+          <p>
+
+            LOAD DATA LOCAL INFILE 'Bureau/Exercices/SQL/csv/clients.csv'
+            INTO TABLE `clients`
+            FIELDS TERMINATED BY ';'
+            LINES TERMINATED BY '\n'
+            IGNORE 1 LINES;
+          </p>
+
+          <h2>Exo 5</h2>
+          <p>Insérer les données de spectacles.csv dans la table spectacles</p>
+          <p>
+
+            LOAD DATA LOCAL INFILE 'Bureau/Exercices/SQL/csv/spectacles.csv'
+            INTO TABLE `spectacles`
+            FIELDS TERMINATED BY ';'
+            LINES TERMINATED BY '\n'
+            ESCAPED BY '\\'
+            IGNORE 1 LINES;
+          </p>
+
+
+          <h2>Exo 6</h2>
+          <p>Exécuter le script reservations.sql</p>
+          <p>
+            SOURCE Bureau/Exercices/SQL/sql/reservations.sql
+
+          </p>
+
+
+          <h2>Exo 7</h2>
+          <p>Exécuter le script billets.sql</p>
+          <p>
+            SOURCE Bureau/Exercices/SQL/sql/billets.sql
+          </p>
+  </body>
+</html>

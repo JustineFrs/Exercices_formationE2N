@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulaire</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="messageForm" ng-submit="addMessage(message)" novalidate>
+            <label>Nom* : </label>
+            <input placeholder="Nom" ng-model="message.name" name="messageName" ng-required="true"/>
+            <!-- -->
+            <p ng-show="messageForm.messageName.$invalid">Veuillez saisir votre nom</p>
+            <label>Email* : </label>
+            <input placeholder="E-mail du destinataire" ng-model="message.email" name="messageEmail" ng-required="true" ng-pattern="/@/"/>
+            <p ng-show="messageForm.messageEmail.$invalid">Veuillez saisir votre e-mail</p>
+            <label>Sujet* : </label>
+            <input placeholder="Sujet" ng-model="message.subject" name="messageSubject" ng-required="true" ng-minlength="2"/>
+            <p ng-show="messageForm.messageSubject.$invalid">Veuillez saisir le sujet</p>
+            <label>Commentaire* : </label>
+            <textarea placeholder="Message" ng-model="message.content" name="messageContent" ng-required="true" ng-minlength="5"></textarea>
+            <p ng-show="messageForm.messageContent.$invalid">Veuillez saisir un content d'au moins 5 caractères</p>
+            <button type="submit" ng-disabled="messageForm.$invalid">Envoyer</button>
+            <p>* Tous les champs à remplir sont obligatoires !</p>
+        </form>
+        <div class="message" ng-repeat="message in messages">
+            <div class="subject" ng-click="message.show = !message.show">{{ message.subject}}</div>
+            <div class="content" ng-show="message.show">{{message.name}}</div>
+            <div class="content" ng-show="message.show">{{message.email}}</div>
+            <div class="content" ng-show="message.show">{{message.content}}</div>
+        </div>
+    </body>
+</html>

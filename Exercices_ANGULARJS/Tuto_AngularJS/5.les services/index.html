@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+        <title>LES SERVICES</title>
+    </head>
+    <body ng-app="MonApp">
+        <h1>LES SERVICES</h1>
+        <br/>
+        <div ng-view></div>
+        <!-- SERVICES -->
+        <script>
+            var app = angular.module('MonApp', ['ngRoute']);
+                    app.config(function($routeProvider){
+                    $routeProvider
+                            .when('/', {templateUrl: 'partials/home.html', controller: 'PostsCtrl'})
+                            .when('/comments/:id', {templateUrl: 'partials/comments.html', controller: 'CommentsCtrl'})
+                            .otherwise({redirectTo: '/'});
+                    });
+                    app.factory('PostFactory', function(){
+                    var factory = {
+                    posts : [
+                    {
+                    "id": "0",
+                            "name": "Lambert Mullins",
+                            "email": "lambertmullins@zillar.com",
+                            "phone": "+1 (868) 500-3116",
+                            "tags": [
+                                    "dolore",
+                                    "pariatur",
+                                    "enim",
+                                    "laborum",
+                                    "cupidatat",
+                                    "duis",
+                                    "id"
+                            ]
+                    },
+                    {
+                    "id": "1",
+                            "name": "Liz Compton",
+                            "email": "lizcompton@zillar.com",
+                            "phone": "+1 (975) 493-3731",
+                            "tags": [
+                                    "mollit",
+                                    "exercitation",
+                                    "minim",
+                                    "exercitation",
+                                    "sit",
+                                    "non",
+                                    "ad"
+                            ]
+                    },
+                    {
+                    "id": "1",
+                            "name": "Blake Atkins",
+                            "email": "blakeatkins@zillar.com",
+                            "phone": "+1 (909) 419-3875",
+                            "tags": [
+                                    "occaecat",
+                                    "adipisicing",
+                                    "ipsum",
+                                    "aliqua",
+                                    "quis",
+                                    "irure",
+                                    "consequat"
+                            ]
+                    },
+                    {
+                    "id": "2",
+                            "name": "Simon Casey",
+                            "email": "simoncasey@zillar.com",
+                            "phone": "+1 (861) 452-2190",
+                            "tags": [
+                                    "ullamco",
+                                    "voluptate",
+                                    "dolore",
+                                    "qui",
+                                    "adipisicing",
+                                    "exercitation",
+                                    "commodo"
+                            ]
+                    },
+                    {
+                    "id": "3",
+                            "name": "Armstrong Rush",
+                            "email": "armstrongrush@zillar.com",
+                            "phone": "+1 (969) 596-3560",
+                            "tags": [
+                                    "deserunt",
+                                    "cillum",
+                                    "excepteur",
+                                    "adipisicing",
+                                    "sunt",
+                                    "officia",
+                                    "voluptate"
+                            ]
+                    },
+                    {
+                    "id": "4",
+                            "name": "Mendez Hays",
+                            "email": "mendezhays@zillar.com",
+                            "phone": "+1 (945) 481-3810",
+                            "tags": [
+                                    "culpa",
+                                    "velit",
+                                    "quis",
+                                    "adipisicing",
+                                    "adipisicing",
+                                    "in",
+                                    "nostrud"
+                            ]
+                    },
+                    {
+                    "id": "5",
+                            "name": "Vazquez Travis",
+                            "email": "vazqueztravis@zillar.com",
+                            "phone": "+1 (966) 561-3628",
+                            "tags": [
+                                    "dolore",
+                                    "sint",
+                                    "officia",
+                                    "ullamco",
+                                    "ut",
+                                    "nulla",
+                                    "nostrud"
+                            ]
+                    }
+                    ],
+                            getPosts : function(){
+                            return factory.posts;
+                            },
+                            getPosts : function(id){
+                            return factory.posts[0];
+                            }
+                    }
+                    return factory;
+                    })
+                    app.controller('PostsCtrl', function($scope, PostFactory){
+                    $scope.posts = PostFactory.getPosts();
+                    })
+                    app.controller('CommentsCtrl', function ($scope){
+                    $scope.comments = [
+                    {
+                    "id": "0",
+                            "name": "Lambert Mullins",
+                            "email": "lambertmullins@zillar.com",
+                            "phone": "+1 (868) 500-3116",
+                            "tags": [
+                                    "dolore",
+                                    "pariatur",
+                                    "enim",
+                                    "laborum",
+                                    "cupidatat",
+                                    "duis",
+                                    "id"
+                            ]
+                    },
+                    {
+                    "id": "1",
+                            "name": "Liz Compton",
+                            "email": "lizcompton@zillar.com",
+                            "phone": "+1 (975) 493-3731",
+                            "tags": [
+                                    "mollit",
+                                    "exercitation",
+                                    "minim",
+                                    "exercitation",
+                                    "sit",
+                                    "non",
+                                    "ad"
+                            ]
+                    },
+                    {
+                    "id": "1",
+                            "name": "Blake Atkins",
+                            "email": "blakeatkins@zillar.com",
+                            "phone": "+1 (909) 419-3875",
+                            "tags": [
+                                    "occaecat",
+                                    "adipisicing",
+                                    "ipsum",
+                                    "aliqua",
+                                    "quis",
+                                    "irure",
+                                    "consequat"
+                            ]
+                    },
+                    {
+                    "id": "2",
+                            "name": "Simon Casey",
+                            "email": "simoncasey@zillar.com",
+                            "phone": "+1 (861) 452-2190",
+                            "tags": [
+                                    "ullamco",
+                                    "voluptate",
+                                    "dolore",
+                                    "qui",
+                                    "adipisicing",
+                                    "exercitation",
+                                    "commodo"
+                            ]
+                    },
+                    {
+                    "id": "3",
+                            "name": "Armstrong Rush",
+                            "email": "armstrongrush@zillar.com",
+                            "phone": "+1 (969) 596-3560",
+                            "tags": [
+                                    "deserunt",
+                                    "cillum",
+                                    "excepteur",
+                                    "adipisicing",
+                                    "sunt",
+                                    "officia",
+                                    "voluptate"
+                            ]
+                    },
+                    {
+                    "id": "4",
+                            "name": "Mendez Hays",
+                            "email": "mendezhays@zillar.com",
+                            "phone": "+1 (945) 481-3810",
+                            "tags": [
+                                    "culpa",
+                                    "velit",
+                                    "quis",
+                                    "adipisicing",
+                                    "adipisicing",
+                                    "in",
+                                    "nostrud"
+                            ]
+                    },
+                    {
+                    "id": "5",
+                            "name": "Vazquez Travis",
+                            "email": "vazqueztravis@zillar.com",
+                            "phone": "+1 (966) 561-3628",
+                            "tags": [
+                                    "dolore",
+                                    "sint",
+                                    "officia",
+                                    "ullamco",
+                                    "ut",
+                                    "nulla",
+                                    "nostrud"
+                            ]
+                    }
+                    ],
+                    })
+        </script>
+    </body>
+</html>

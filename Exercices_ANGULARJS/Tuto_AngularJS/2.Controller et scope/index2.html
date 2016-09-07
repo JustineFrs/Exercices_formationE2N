@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+
+        <title>Controller et scope</title>
+    </head>
+    <body ng-app>
+              
+        <!-- CONTROLLER ET SCOPE -->
+        <h1>CONTROLLER ET SCOPE</h1>
+        <br/>
+        <div ng-controller="CommentsCtrl">
+            
+            <input type="text" ng-model="query"/>
+            {{query}}
+            <select ng-model="order">
+                <option value="username">Organise par nom</option>
+                <option value="contents">Organise par contenu</option>
+            </select> 
+            
+            <div ng-repeat="comment in comments | 
+            filter:{contents:query} | orderBy:order">
+                <p>
+                    <strong>{{comment.username}}</strong><br/>
+                    {{comment.contents}}
+                </p>
+                <input type="text" ng-model="query"/>
+            </div>
+            
+        </div>
+        <script>
+function CommentsCtrl($scope){
+            console.log($scope);
+            $scope.comments = [
+  {
+    "username": "Daniel",
+    "city": "Downsville",
+    "email": "<TypeError: undefined is not a function>",
+    "contents": "Et Lorem consectetur proident exercitation elit veniam. Ea incididunt cupidatat velit tempor aliquip. Exercitation aliqua fugiat adipisicing laboris. Culpa proident ipsum velit dolor exercitation do laborum ea dolore proident reprehenderit enim occaecat. Velit dolore amet magna cupidatat elit commodo incididunt minim nisi ea dolor qui."
+  },
+  {
+    "username": "Lilly",
+    "city": "Kingstowne",
+    "email": "<TypeError: undefined is not a function>",
+    "contents": "Eu laborum consequat minim cillum laborum enim exercitation esse. Anim eu id exercitation dolor elit duis nostrud cupidatat occaecat minim laboris cillum. Cupidatat exercitation elit consectetur ad magna nostrud minim. Ea laborum excepteur nulla elit eu qui. Ut magna cillum cillum do commodo aute labore eiusmod."
+  },
+  {
+    "username": "Burns",
+    "city": "Onton",
+    "email": "<TypeError: undefined is not a function>",
+    "contents": "Laboris sunt officia labore sint Lorem veniam nisi officia quis incididunt consequat. Ullamco duis quis veniam fugiat adipisicing fugiat. Do irure qui deserunt officia ea deserunt nulla. Aliquip do sint et elit mollit nisi aute ipsum exercitation. Esse est minim id mollit qui non enim elit dolor amet aliqua irure aute nostrud."
+  },
+  {
+    "username": "Durham",
+    "city": "Jennings",
+    "email": "<TypeError: undefined is not a function>",
+    "contents": "Non esse consectetur irure voluptate cillum ut occaecat aliquip. Exercitation ullamco laborum sint aliquip elit elit aliquip aliquip. Do officia elit elit sunt laborum qui non et fugiat. Dolore elit qui et incididunt nostrud ad. Eiusmod irure commodo id aliqua irure."
+  },
+  {
+    "username": "Brock",
+    "city": "Hemlock",
+    "email": "<TypeError: undefined is not a function>",
+    "contents": "Labore duis do ut dolor Lorem in magna nulla consequat aliqua ullamco non nisi ut. Deserunt qui magna non Lorem dolor commodo occaecat ad non enim nisi. Enim anim cupidatat cupidatat deserunt magna. Incididunt in nostrud proident labore irure laborum dolore ullamco id velit culpa. Minim non voluptate sint enim in laboris ea et sint fugiat ad."
+  }
+]
+}
+        </script>
+    </body>
+</html>

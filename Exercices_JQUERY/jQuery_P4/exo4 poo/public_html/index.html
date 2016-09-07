@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+       <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+       <script src="phrase.js" type="text/javascript"></script>
+       <title>Jquery_partie4_exo_3</title>
+   </head>
+   <body>
+       <form>
+           <label for="nom" >Nom : </label><input type="text" id="nom" name="nom">
+           <label for="prenom">Prénom : </label><input type="text" id="prenom" name="prenom">
+           <label for="bday">Date de naissance : </label><input type="text" id="bday" name="bday">
+           <label for="bdayplace">Lieu de naissance : </label><input type="text" id="bdayplace" name="bdayplace">
+           <label for="emploi">Emploi : </label><input type="text" id="emploi" name="emploi">
+           <label for="societe">Société : </label><input type="text" id="societe" name="societe">
+           <a href="#" class="btn btn-success center-block" id="generer">Générer</a>
+       </form>
+       <script>
+           $(document).ready(function () {
+               $('#generer').click(function () {
+                   var cphrase = new phrase;
+                   cphrase.nom = $('#nom').val();
+                   cphrase.prenom = $('#prenom').val();
+                   cphrase.bday = $('#bday').val();
+                   cphrase.bdayplace = $('#bdayplace').val();
+                   cphrase.emploi = $('#emploi').val();
+                   cphrase.societe = $('#societe').val();
+                   var bdate = cphrase.checkBDate(cphrase.bday);
+                   var nom = cphrase.checkLetters(cphrase.nom);
+                   var prenom = cphrase.checkLetters(cphrase.prenom);
+                   var bdayplace = cphrase.checkLetters(cphrase.bdayplace);
+                   if(!bdate){
+                       alert("La date de naissance n'est pas correcte !!!");
+                   }
+                   if(!nom){
+                       alert("Le nom n'est pas correcte !!!");
+                   }
+                   if(!prenom){
+                       alert("Le prénom n'est pas correcte !!!");
+                   }
+                   if(!bdayplace){
+                       alert("Le lieu de naissance n'est pas correcte !!!");
+                   }
+                   if(bdate && nom && prenom && bdayplace){
+                       alert(cphrase.concat());
+                   }
+               });
+           });
+       </script>
+   </body>
+</html>

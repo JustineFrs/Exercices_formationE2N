@@ -1,0 +1,8 @@
+id;intitule;artiste;type;genre;date;heure;duree;salles_id
+3;Origines;Baptiste Lecapelain;One Man Show;Humour;2016/10/09,17:00:00;02:00:00;3
+4;L\'attrape-coeur;Christophe Maé;Concert;Folk;2017/05/05;20:00:00;02:30:00;4
+5;Le fascinateur;Messmer;One Man Show;Hypnose;2017/03/09;20:00:00;02:00:00;2
+6;Hard Candy;Madonna;Concert;Variété Pop Internationnale;2018/12/02;17:00:00;02:30:00;1
+7;Femme Fatale Tour;Britney Spears;Concert;Variété Pop Internationnale;2016/10/10;21:00:00;02:00:00;5
+8;Berceuse;Rondoudou;Concert;Variété Pop Japonnaise;2017/05/06;19:00:00;02:00:00;2
+9;Je t\'ai rencontré par hasard;Pietragalla & Derouault;Danse;Contemporaine;2017/03/17;18:00:00;02:45:00;4

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <meta charset="utf-8"/>
+    <title>Exercice 7!</title>
+  </head>
+  <body>
+    <form action="index.html" method="post">
+        <fieldset id="ID">
+        <legend id="ID">Votre Identité</legend>
+        <ol>
+          <li><label for="nom">Nom : </label><input type="text" id="nom" placeholder="Nom"/></li>
+          <li><label for="prenom">Prénom : </label><input type="text" id="prenom" placeholder="Prénom"/></li>
+          <li><label for="adresse_mail">Adresse mail : </label><input type="text" id="adresse_mail" placeholder="Adresse Email"/></li>
+        </ol>
+        </fieldset>
+        <fieldset id="Add_livr">
+        <legend id="Add_livr">Adresse de livraison</legend>
+        <ol>
+          <li><label for="adresse"><textarea placeholder="Adresse">Adresse : </textarea></label>
+          <li><label for="code_postal">Code Postal : </label><input type="text" id="code_postal" placeholder="Code Postal"/></li>
+          <li><label for="ville">Ville : </label><input type="text" id="ville" placeholder="Ville"/></li>
+        </ol>
+        </fieldset>
+        <fieldset id="Infos_regl">
+        <legend id="Infos_regl">Informations de réglement</legend>
+          <ol>
+            <li><label for="type_carte">Type de carte bancaire : </label></br>
+            <input type="radio" value="Visa" id="Visa"/>
+            <label for="visa">Visa</label></br>
+            <input type="radio" value="MasterCard" id="MasterCard"/>
+            <label for="MasterCard">MasterCard</label>
+            <li><label for="numéro_carte">Numéro de carte : </label><input type="text" id="Numéro_carte" placeholder="Numéro de carte"/></li>
+            <li><label for="code_secu">Code de sécurité : </label><input type="text" id="Code_secu" placeholder="Code de sécurité"/></li>
+            <li><label for="code_titulaire">Nom du titulaire : </label><input type="text" id="Code_titulaire" placeholder="Nom du titulaire"/></li>
+          </ol>
+        </fieldset>
+        <input type="submit" value="J'achète !" ></code>
+    </form>
+  </body>
+</html>

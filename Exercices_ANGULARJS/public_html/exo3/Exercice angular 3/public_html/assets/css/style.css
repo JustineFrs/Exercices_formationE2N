@@ -1,0 +1,38 @@
+
+
+form {
+    font-family: Arial;
+    background-color: #CCF;
+    border: 1px #88F solid;
+    padding: 0.5em;
+}
+
+input, button, textarea {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0.5em;
+}
+input, textarea {
+    border: 1px #88F solid;
+    margin-bottom: 0.5em;
+}
+p {
+    color: #F00;
+    margin: 0;
+    margin-bottom: 0.5em;
+}
+.message {
+    margin-top: 0.5em;
+    border: 1px #8F8 solid;
+}
+.subject {
+    cursor: pointer;
+    background-color: #AFA;
+    padding: 0.5em;
+}
+.content {
+    padding: 0.5em;
+    border-top: 1px #8F8 solid;
+    background-color: #CFC;
+}

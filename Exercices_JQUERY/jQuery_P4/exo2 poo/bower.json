@@ -1,0 +1,13 @@
+{
+  "name": "exo2_poo",
+  "version": "1.0.0",
+  "main": "path/to/main.css",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "jQuery": "3.0.0"
+  },
+  "devDependencies": {}
+}

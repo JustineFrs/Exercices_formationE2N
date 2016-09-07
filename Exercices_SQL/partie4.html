@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MYSQL - PARTIE #4</title>
+  </head>
+  <body>
+    <h1>Exercices PARTIE #4</h1>
+
+    <h2>EXO 1</h2>
+    <p>
+Afficher tous les clients dont le nom commence par la lettre "L".
+    </p>
+    <p>
+      SELECT * FROM clients
+      WHERE nom LIKE '%L%';
+    </p>
+
+
+    <h2>EXO 2</h2>
+    <p>
+Afficher tous les clients dont le nom commence par "L" et qui ne contiennent que 5 lettres.
+    </p>
+    <p>
+      SELECT * FROM clients
+      WHERE nom LIKE '%L%'
+      AND nom LIKE '_____';
+    </p>
+
+
+  <h2>EXO 3</h2>
+    <p>
+Afficher tous les clients dont le nom commence par "P" et finit par "ski".
+    </p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom LIKE '%P%SKI%';
+    </p>
+
+
+  <h2>EXO 4</h2>
+    <p>
+Afficher tous les clients dont le nom commence par "A", finit par "da" et ne contient que 8 lettres.
+    </p>
+    <p>
+      SELECT * FROM clients
+      WHERE nom LIKE '%P%DA%'
+      AND nom LIKE '________' ;
+    </p>
+
+
+  <h2>EXO 5</h2>
+    <p>
+Afficher le nom de tous les clients dont le nom ne contient pas la lettre "a".
+    </p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom NOT LIKE '%a%';
+    </p>
+
+
+  <h2>EXO 6</h2>
+    <p>
+Afficher tous les prix de billets commençant par le chiffre 2.
+    </p>
+    <p>
+          SELECT * FROM billets
+          WHERE prix LIKE '2%';
+    </p>
+
+
+  <h2>EXO EN +</h2>
+    <p>
+Afficher tous les clients dont le nom contient "L". Attention : les clients dont le nom contient "l" ne doivent pas apparaître.
+    </p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom LIKE BINARY '%L%'
+          AND nom NOT LIKE BINARY '%l%';
+    </p>
+
+
+  <h2>EXO 7</h2>
+    <p>
+Afficher tous les spectacles ayant lieu entre le 15 mai 2016 et le 15 aôut 2016.
+    </p>
+    <p>
+          SELECT * FROM spectacles
+          WHERE date BETWEEN '2016-05-15' AND '2016-08-15';
+    </p>
+
+
+  <h2>EXO 8</h2>
+    <p>
+Afficher tous les prix de billets compris entre 5 € et 20 €.
+    </p>
+    <p>
+          SELECT * FROM billets
+          WHERE prix BETWEEN 5 AND 20;
+    </p>
+
+
+  <h2>EXO EN +</h2>
+    <p>
+En utilisant la même requête que pour les exercices 7 et 8, afficher tous les clients dont le nom commence par "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" ou "L". Trier le champs nom par ordre alphabétique.
+    </p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom BETWEEN 'A' AND 'M'
+          ORDER BY nom ASC;
+    </p>
+
+
+  <h2>EXO 9</h2>
+    <p>
+Afficher tous les spectacles qui ne se déroulent pas entre le 1er janvier 2016 et le 15 février 2016.
+    </p>
+    <p>
+          SELECT * FROM spectacles
+          WHERE date NOT BETWEEN '2016-01-01' AND '2016-02-15';
+    </p>
+
+
+  <h2>EXO 10</h2>
+    <p>
+En utilisant le même requête que pour l'exercice 9, afficher toutes les réservations qui concernent moins de 2 billets et plus de 6 billets.
+    </p>
+    <p>
+          SELECT * FROM billets
+          WHERE reservations_id NOT BETWEEN '2' AND '6';
+    </p>
+
+
+  <h2>EXO 11</h2>
+    <p>
+      Afficher tous les clients dont le nom se trouve dans cette liste :
+
+      Faubert, Dubeau, Soucy, Michaud, Rivière, Lacroix, Demers, Tritan.
+
+      Trier le champs nom par ordre alphabétique.    </p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom ='Faubert'
+          OR nom ='Dubeau'
+          OR nom ='Soucy'
+          OR nom ='Michaud'
+          OR nom ='Rivière'
+          OR nom ='Lacroix'
+          OR nom ='Demers'
+          OR nom ='Tritan'
+          ORDER BY nom;
+    </p>
+
+
+  <h2>EXO 12</h2>
+    <p>
+      Afficher tous les clients dont le nom n'est pas dans cette liste.
+
+Trier le champs nom par ordre alphabétique.</p>
+    <p>
+          SELECT * FROM clients
+          WHERE nom !='Faubert'
+          OR nom !='Dubeau'
+          OR nom !='Soucy'
+          OR nom !='Michaud'
+          OR nom !='Rivière'
+          OR nom !='Lacroix'
+          OR nom !='Demers'
+          OR nom !='Tritan'
+          ORDER BY nom;
+    </p>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exo_1</title>
+        <meta charset="UTF-8">
+        <script src="../bower_components/angular/angular.js" type="text/javascript"></script>
+        <script src="exo1.js" type="text/javascript"></script>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+    </head>
+        <!--Le nom de l'app qui correspond au js-->
+<body ng-app="appMail">
+       <div ng-controller="validationEmail">
+           <!--ng-change = attribut-->
+               <input type="text" ng-model="email" ng-change="analyseEmail(email)"/>
+               <!--Si true > cache la div-->
+           <div ng-hide="isOkay" class="taille rouge"></div>
+           <!-- OU <div ng-show="!isOkay" class="taille rouge"></div> -->
+               <!--Si true > affiche la div-->
+           <div ng-show="isOkay" class="taille vert"></div>
+       </div>
+   </body>
+</html>
+
+<!--Faire un formulaire de saisie d'adresse e-mail. 
+Si l'adresse comporte le symbole @, alors une div verte apparait. 
+S'il n'est pas là, une div rouge apparaît pour avertir l'utilisateur que sa saisie est incorrecte.-->

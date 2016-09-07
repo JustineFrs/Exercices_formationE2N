@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+ <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+ <title></title>
+</head>
+<body>
+ <select id="Choix_Utili" name="shifumi">
+   <option value="0">Pierre</option>
+   <option value="1">Feuille</option>
+   <option value="2">Ciseaux</option>
+ </select>
+ <button id="jouer">Shifumi!</button>
+<script>
+$(document).ready(function(){
+var victoire = 0;
+var defaite = 0;
+var total = 0;
+
+ $("#jouer").click(function(){
+   total++;
+   //récupération du choix utilisateur
+   var choixUtilisateur = parseInt($("#Choix_Utili").val());
+   //Generer le choix utilisateur
+   var choixOrdinateur = Math.floor(Math.random()*3);
+   if(choixUtilisateur == choixOrdinateur){
+     $('body').append('<p>Match nul!</p>');
+   }else if((choixUtilisateur == 0 && choixOrdinateur == 2) || (choixUtilisateur == 1  && choixOrdinateur == 0) || (choixUtilisateur == 2 && choixOrdinateur == 1)){
+     $('body').append('<p>Vous avez gagné!</p>');
+     victoire++;
+   }else if((choixUtilisateur == 0 && choixOrdinateur == 1) || (choixUtilisateur == 1  && choixOrdinateur == 2) || (choixUtilisateur == 2 && choixOrdinateur == 0)){
+     $('body').append('<p>Vous avez perdu!</p>');
+     defaite++;
+   }
+   var pourcentage = victoire / total * 100;
+   alert("Vous avez gagné " + victoire + " fois et vous avez perdu " + defaite + ". Vos victoires representent " + pourcentage + " % de vos parties");
+ });
+});
+</script>
+</body>
+</html>
+<!--Créer un menu déroulant avec trois éléments (Pierre, Feuille, Ciseaux). Ajouter un bouton « Shifumi ! ».
+Lorsque l'on clique sur « Shifumi ! », choisir un élément au hasard (Pierre, Feuille ou Ciseaux).
+Le comparer à l'élément choisi par le joueur pour voir qui a gagné entre l'humain et la machine.
+
+Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcentage de victoire contre l'ordinateur.-->

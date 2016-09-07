@@ -1,0 +1,26 @@
+.fond{
+  background-color: #98ccb5;
+}
+h1{
+  font-size: 24px;
+  text-align: center;
+  color: white;
+}
+.block_titre{
+  background-color: #005a51;
+}
+input{
+  width: 600px;
+}
+label{
+  margin-left: 10px;
+  margin-top: 20px;
+  color: #005a51;
+}
+hr{
+  margin: 10px;
+}
+.btn_envoi{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

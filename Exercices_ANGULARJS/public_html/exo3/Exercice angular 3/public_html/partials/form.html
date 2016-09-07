@@ -1,0 +1,24 @@
+<!--Vue formulaire - permet de saisir des données-->
+<form name="messageForm" ng-submit="addMessage(message)" novalidate>
+    <label>Nom* : </label>
+    <input placeholder="Nom" ng-model="message.nom" name="messageNom" required/>
+    <!--messageForm.messageNom.$invalid permet de vérifier si le champ est bien renseigné-->
+    <!--messageForm.messageNom.$pristine permet de voir si le champ n'a pas été modifié-->
+    <p ng-show="messageForm.messageNom.$invalid && messageForm.messageNom.$pristine"messageForm.messageNom.$pristine>Veuillez saisir un nom valide</p>                    
+    <label>E-mail* : </label>
+    <input placeholder="E-mail du destinataire" ng-model="message.email" name="messageEmail" required ng-pattern="/@/" />
+    <p ng-show="messageForm.messageEmail.$invalid && messageForm.messageEmail.$pristine">Veuillez saisir votre e-mail</p>                   
+    <label>Sujet* : </label>
+    <input placeholder="Sujet" ng-model="message.subject" name="messageSubject" required ng-minlength="10"/>
+    <p ng-show="messageForm.messageSubject.$invalid && messageForm.messageSubject.$pristine">Veuillez saisir le sujet</p>                   
+    <label>Message* : </label>
+    <textarea rows="6" placeholder="Message" ng-model="message.content" name="messageContent" required ng-minlength="20"></textarea>
+    <p ng-show="messageForm.messageContent.$invalid && messageForm.messageContent.$pristine">Veuillez saisir un content d'au moins 20 caractères</p>
+    <p>* champs obligatoires</p>
+    <button type="submit" ng-disabled="messageForm.$invalid">Envoyer</button>
+</form>
+<!--Permet de listé tout les éléments du tableau messageList-->
+<div class="message" ng-repeat="message in messageList">
+    <!--{{$index}} incrémente chaque message -->
+    <a href="#/mailcontent/{{$index}}">{{message.subject}}</a>
+</div>

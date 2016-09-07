@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MYSQL - PARTIE #1</title>
+  </head>
+  <body>
+    
+    <h1>Exercices PARTIE #1 MySQL</h1>
+    <!-- ` ` Magic quotes pour protection des tables -->
+
+    <h2>Exo1</h2>
+    <p>Créer une base de données appelée competences.</p>
+
+    <p>
+      <!--Ouverture de session ROOT-->
+      mysql -h localhost -u root -p
+      <!--Création d'un DATABASE-->
+      CREATE DATABASE nom_base;
+      <!--Administration des droits-->
+      GRANT ALL PRIVILEGES ON nom_base.* TO 'jufrs'@'localhost' IDENTIFIED BY 'MDP';
+      <!--Quiter session ROOT-->
+      quit
+      <!--Ouverture de session MOI-->
+      mysql -u jufrs -p mdp
+      <!--Utilisation de la base-->
+      USE nom_base
+    </p>
+
+
+    <h2>Exo2</h2>
+    <p>Dans la base de données competences, créer une table langages comprenant deux champs :
+      id : type numérique, clé primaire et auto-incrémenté.
+      langage : type alphanumérique.
+    </p>
+    <p>
+      <!--Création de la table avec sécurité magic quotes-->
+      CREATE TABLE `langage`(
+      `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+      `langages` VARCHAR(50) NOT NULL,
+      PRIMARY KEY(id)
+      )
+      ENGINE=INNODB;
+    </p>
+
+
+    <h2>Exo3</h2>
+    <p>Créer une base de données appelée colysee avec l'encodage UTF-8.</p>
+    <p>
+      mysql -h localhost -u root -p --default-character-set=utf8
+      CREATE DATABASE `colysee`;
+      GRANT ALL PRIVILEGES ON `colysee`.* TO 'jufrs'@'localhost' IDENTIFIED BY 'MDP';
+      quit
+      mysql -u jufrs -p mdp
+      USE nom_base
+    </p>
+
+
+    <h2>Exo4</h2>
+    <p>Dans la base colysee, créer la table clients contenant 5 champs :
+
+      id, clé primaire, auto-incrémenté
+      nom
+      prenom
+      carte_fidelite
+      reduction</p>
+
+      <p>
+        CREATE TABLE `clients`(
+        id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+        nom VARCHAR(50) NOT NULL,
+        prenom VARCHAR(50) NOT NULL,
+        carte_fidelite TINYINT(1),
+        reduction DECIMAL(3,2),
+        PRIMARY KEY(id)
+        )
+        ENGINE=INNODB;
+      </p>
+
+
+      <h2>Exo5</h2>
+      <p>Dans la base colysee, créer la table salles avec deux champs :
+        id, clé primaire, auto-incrémenté
+        nombre_sieges</p>
+        <p>
+          CREATE TABLE `salles`(
+          id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+          nombre_sieges INT(5) NOT NULL,
+          PRIMARY KEY(id)
+          )
+          ENGINE=INNODB;
+        </p>
+
+
+        <h2>Exo6</h2>
+        <p>  Dans la base colysee, créer la table spectacles avec les champs :
+
+          id, clé primaire, auto-incrémenté
+          intitule
+          artiste
+          type
+          genre
+          date
+          heure
+          duree
+          salles_id</p>
+
+          <p>
+            CREATE TABLE `spectacles`(
+            id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+            intitule VARCHAR(50) NOT NULL,
+            artiste VARCHAR(50) NOT NULL,
+            type VARCHAR(50) NOT NULL,
+            genre VARCHAR(50) NOT NULL,
+            date DATE NOT NULL,
+            heure TIME NOT NULL,
+            duree TIME NOT NULL,
+            salle_id INT(11) NOT NULL,
+            PRIMARY KEY(id)
+            )
+            ENGINE=INNODB;
+          </p>
+
+
+          <h2>Exo7</h2>
+          <p>Dans la base colysee, créer la table reservations avec les champs :
+
+            id, clé primaire, auto-incrémenté
+            spectacles_id
+            clients_id
+            nombre_billets</p>
+
+            <p>
+              CREATE TABLE reservation(
+              id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+              `spectaclesId` INT(11) UNSIGNED NOT NULL,
+              `clientsId` VARCHAR(50) NOT NULL,
+              `nombreBillets` INT(2) NOT NULL,
+              PRIMARY KEY(id)
+              )
+              ENGINE=INNODB;
+            </p>
+
+  </body>
+</html>

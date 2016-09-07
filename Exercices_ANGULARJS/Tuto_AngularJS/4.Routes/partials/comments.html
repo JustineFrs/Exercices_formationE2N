@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Commentaires</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app>
+        <input type="text" ng-model="query"/>
+        {{query}}
+        <select ng-model="order">
+            <option value="username">Organise par nom</option>
+            <option value="contents">Organise par contenu</option>
+        </select> 
+        <div ng-repeat="comment in comments| 
+          filter:{contents:query} | orderBy:order">
+            <p>
+                <strong>{{comment.username}}</strong><br/>
+                {{comment.contents}}
+            </p>
+        </div>
+    </body>
+</html>

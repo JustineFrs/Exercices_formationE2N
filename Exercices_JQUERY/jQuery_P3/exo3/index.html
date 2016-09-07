@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exercice 3</title>
+  <script src="jquery-2.2.4.js"></script>
+</head>
+<body>
+  <form>
+    <input id="select" type="texte"/>
+    <input id="bouton" type="button" value="Trouvez moi"/>
+  </form>
+</body>
+<script>
+$(document).ready(function(){
+  $('#select').val(function(){
+    var random = Math.floor((Math.random() * 100) +1); //générer un nombre aléatoire entre min (incluse)et max (exclue)
+    var nombreclick = 0; // pas encore de clic
+    $('#bouton').click(function(){ //au clic
+      nombreclick++; //incrémente 1+1
+      if ($('#select').val()>random){ //si champs plus grand
+        alert("C'est moins !");} //affiche
+        else if ($('#select').val()<random){ //si champs plus petit
+          alert("C'est plus !");} //affiche
+          else { //sinon ok
+            alert("Correct ! Vous avez réussi en " + nombreclick + "clic(s)");} //affiche ok + nb de clic
+          });
+        });
+      });
+      </script>
+      </html>

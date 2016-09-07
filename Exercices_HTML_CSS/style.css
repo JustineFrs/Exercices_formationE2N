@@ -1,0 +1,20 @@
+body  {
+  background-color: #dde19c;
+}
+
+h1 {
+  font-size: 72px;
+  font-style: Tahoma;
+  background-color:  	#3b2572;
+}
+
+p {
+  font-size: 18px;
+  font-style: Verdana;
+  color: #529f82;
+}
+
+ul {
+  background-color:  	#8999b0;
+  font-style: italic;
+}

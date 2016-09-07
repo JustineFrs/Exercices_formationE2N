@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Exo3 Poo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="verif.js" type="text/javascript"></script>
+        <script src="bower_components/jQuery/dist/jquery.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <input type="text" name="name" id="nom" placeholder="NOM"/>
+        <input type="text" name="name" id="prenom" placeholder="PRENOM"/>
+        <input type="text" name="name" id="add_mail" placeholder="ADRESSE MAIL"/>
+        <input type="text" name="name" id="numero" placeholder="NUMERO"/>
+        <input type="button" name="name" id="verif" value="Vérifier"/>
+        <script>
+            $('#verif').click(function () {
+                var cVerif = new Verif;
+                cVerif.nom = $('#nom').val();
+                cVerif.prenom = $('#prenom').val();
+                cVerif.adresse_mail = $('#add_mail').val();
+                cVerif.numero = $('#numero').val();
+                alert(cVerif.verifLettre(cVerif.nom + cVerif.prenom));
+                alert(cVerif.verifMail(cVerif.adresse_mail));
+                alert(cVerif.verifNumero(cVerif.numero));
+                alert(cVerif.recap());
+            });
+        </script>
+    </body>
+</html>

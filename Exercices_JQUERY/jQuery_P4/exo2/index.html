@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 2</title>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+  </head>
+  <body>
+    <form class="">
+      <input type="text" name="name" id="salaire" placeholder="Salaire"/>
+      <input type="text" name="name" id="genre" placeholder="Genre"/>
+      <input type="text" name="name" id="nb_enfants" placeholder="Nombre d'enfants"/>
+      <input type="button" name="name" id="calculer" value="Calculer"/>
+    </form>
+    <script>
+    $(document).ready(function(){
+      $('#calculer').click(function(){
+        var salaire = $('#salaire').val();
+        var charges = salaire * 18 / 100;
+        var assur = salaire * 7 / 100;
+        var coti = salaire * 5 / 100;
+        var remises_totales = charges + assur + coti;
+        var salaireNet = salaire - remises_totales;
+        var genre = $('#genre').val();
+        var nbEnfants = $('#nb_enfants').val();
+        var femme = salaireNet * 2 / 100;
+        var troisE = salaireNet * 1 / 100;
+        var quatreE = salaireNet * 2 / 100;
+
+        if (genre == 'M' && nbEnfants == 3){
+          alert(salaireNet + troisE);
+        }
+        else if(genre == 'M' && nbEnfants >= 4){
+          alert(salaireNet + quatreE);
+        }
+        else if (genre == 'F' && nbEnfants == 3){
+          alert(salaireNet + femme + troisE);
+        }
+        else if (genre == 'F' && nbEnfants >= 4){
+          alert(salaireNet + femme + quatreE);
+        }
+        else if (genre == 'F'){
+          alert(salaireNet + femme);
+        }
+        else{
+          alert(salaireNet);
+        }
+      });
+    });
+    </script>
+  </body>
+</html>
+<!--Demander à l'aide d'un formulaire le salaire d'une personne, son genre et son nombre d'enfants.
+
+Calculer le salaire en décomptant les frais suivants:
+
+    Charges : 18 %;
+    Assurance : 7%;
+    Cotisations : 5%;
+
+Il est possible de recevoir des réductions sur les charges sous certaines conditions :
+
+    Si l'employé est une femme, elle reçoit 2% de réduction.
+    Si l'employé a 3 enfants à charge, il reçoit 1% de réduction.
+    Si l'employé a 4 enfants à charge, il reçoit 2% de réduction.-->

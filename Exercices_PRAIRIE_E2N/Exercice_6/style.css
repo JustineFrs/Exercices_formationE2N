@@ -1,0 +1,53 @@
+div {
+  float: left;
+}
+#barreun {
+  background-color: #62fc9f;
+  height: 20px;
+  width: 80%;
+}
+#barredeux {
+  background-color: #3b5db6;
+  height: 20px;
+  width: 20%;
+}
+#barretrois {
+  background-color: #ca1e14;
+  height: 60px;
+  width: 40%;
+}
+#barrequatre {
+  background-color: #e38332;
+  height: 30px;
+  width: 30%;
+  vertical-align: top;
+}
+#barrecinq {
+  background-color: #b7c097;
+  height: 30px;
+  width: 30%;
+  vertical-align: top;
+}
+#barresix {
+  background-color: #f6ef28;
+  height: 30px;
+  width: 20%;
+  vertical-align: bottom;
+}
+#barresept {
+  background-color: #216722;
+  height: 30px;
+  width: 20%;
+  vertical-align: bottom;
+}
+#barrehuit {
+  background-color: #ffa700;
+  height: 30px;
+  width: 20%;
+  vertical-align: bottom;
+}
+#barreneuf {
+  background-color: #294057;
+  height: 60px;
+  width: 100%;
+}

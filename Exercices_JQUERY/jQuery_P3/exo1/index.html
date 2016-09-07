@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="jquery-2.2.4.js" type="text/javascript"></script>
+    <title>Exercice 1</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="plus" value="0" />
+      <input type="Button" id='nombreClic' value="Boutton" />
+    </form>
+    <script>
+    $(document).ready(function(){
+      $('#nombreClic').click( function() { //au clic
+        var clicPlus = $('#plus').val(); //recupère la valeur du champs
+        clicPlus++ ; //icrémente de 1 en 1
+        $('#plus').val(clicPlus); //on affiche la valeur du nombre de clic
+      });
+    });
+    </script>
+  </body>
+</html>

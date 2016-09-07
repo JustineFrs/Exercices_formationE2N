@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MYSQL - PARTIE #3</title>
+  </head>
+  <body>
+    <h1>Exercices PARTIE #3 </h1>
+
+    <h2>EXO 1</h2>
+    <p>
+      Afficher tous les clients de la table clients
+    </p>
+    <p>
+      SELECT * FROM `clients`;
+    </p>
+
+
+    <h2>EXO 2</h2>
+    <p>
+      Afficher tous les clients qui ont une carte de fidélité de la table clients.
+    </p>
+    <p>
+      SELECT * FROM `clients`
+      WHERE `carte_fidelite` = 1;
+    </p>
+
+
+    <h2>EXO 3</h2>
+    <p>
+      Afficher les billets à tarif réduit (Enfants et Étudiants) dans la table billets.
+    </p>
+    <p>
+      SELECT * FROM `billets`
+      WHERE type = 'Enfants'
+      OR type = 'Etudiants';
+    </p>
+
+
+    <h2>EXO 4</h2>
+    <p>
+      Afficher tous les billets de la réservation n°1 dans la table billets.
+    </p>
+    <p>
+      SELECT * FROM `billets`
+      WHERE id = 1;
+    </p>
+
+
+    <h2>EXO 5</h2>
+    <p>
+      Afficher tous les concerts de variété pop internationale dans la table spectacles.
+    </p>
+    <p>
+      SELECT * FROM `spectacles`
+      WHERE genre = 'Variété pop internationale'
+      AND type = 'Concert';
+    </p>
+
+
+    <h2>EXO 6</h2>
+    <p>
+      Dans la table billets, sélectioner tous les billets au tarif étudiant qui appartiennent à la réservation n°1.
+    </p>
+    <p>
+      SELECT * FROM `billets`
+      WHERE reservations_id = 1
+      AND type = 'Etudiants';
+    </p>
+
+
+    <h2>EXO 7</h2>
+    <p>
+      Dans la table spectacles, afficher les One Man Show et les pièces de théâtre.
+    </p>
+    <p>
+      SELECT * FROM `spectacles`
+      WHERE type = 'Théâtre'
+      OR type = 'One Man Show';
+      <!--OU-->
+      WHERE type IN ('One Man Show','Théâtre');
+    </p>
+
+
+    <h2>EXO 8</h2>
+    <p>
+      Dans la table billets, afficher tous les prix possibles (enfants, étudiants, ...). Chaque résultat ne doit apparaître qu'une seule fois !
+    </p>
+    <p>
+      SELECT DISTINCT `prix` FROM `billets`;
+    </p>
+
+
+    <h2>EXO 9</h2>
+    <p>
+      Dans la table clients, afficher tous les clients et les trier par nom.
+    </p>
+    <p>
+      SELECT * FROM `clients`
+      ORDER BY nom;
+    </p>
+
+
+    <h2>EXO 10</h2>
+    <p>
+      Dans la table clients, n'afficher que les 5 premiers clients.
+    </p>
+    <p>
+      SELECT * FROM `clients`
+      ORDER BY id
+      LIMIT 5 OFFSET 0;
+    </p>
+
+
+    <h2>EXO 11</h2>
+    <p>
+      Dans la table spectacles, afficher tous les genres.
+      Chaque genre ne doit apparaître qu'une seule fois.
+    </p>
+    <p>
+      SELECT DISTINCT `genre` FROM `spectacles`;
+    </p>
+
+
+    <h2>EXO 12</h2>
+    <p>
+      Dans la table spectacles, afficher tous les intitulés et les trier par nom.
+    </p>
+    <p>
+      SELECT `intitule` FROM `spectacles`
+      ORDER BY intitule ASC;
+    </p>
+
+
+    <h2>EXO en+</h2>
+    <p>
+      Dans la table clients, afficher Victor SOUCY, Aline LACAILLE, Adrien MICHAUD et Eric TOUGAS.
+    </p>
+    <p>
+      SELECT * FROM clients
+      WHERE nom = 'SOUCY'
+      OR nom = 'LACAILLE'
+      OR nom = 'MICHAUD'
+      OR nom = 'TOUGAS';
+    </p>
+
+  </body>
+</html>

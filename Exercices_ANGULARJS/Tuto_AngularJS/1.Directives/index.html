@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+        <title>Les filtres</title>
+    </head>
+    <body ng-app>
+
+
+        <!--recupere valeur de task-->
+        <input type="text" ng-model="task"/>
+        {{task}}
+
+        <br/>
+        <!--calcul-->
+        <input type="text" ng-model="nb1"/>
+        <input type="text" ng-model="nb2"/>
+        {{"Somme :" + (nb1 *1 + nb2 *1)}}
+
+
+        <br/>
+        <!-- NG INIT ET REPEAT systeme de récupération de commentaires-->
+        <input type="text" ng-model="task"/>
+        <div ng-init="users = ['Marco', 'Jeanjean', 'John']">
+            <ul>
+                <!--nom de la variable + parametre de stockage -->
+                <li ng-repeat="user in users">{{user}}</li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres UPPERCASE-->
+        <input type="text" ng-model="task"/>
+        <div ng-init="users = ['Marco', 'Jeanjean', 'John']">
+            <ul>
+                <!--user + uppercase -->
+                <li ng-repeat="user in users">{{user| uppercase}}</li>
+            </ul>
+            {{users}}
+        </div>
+
+
+        <br/>
+        <!-- les filtres FILTER ET ORDERBY-->
+        <input type="text" ng-model="task"/>
+        <div ng-init="users = ['Marco', 'Jeanjean', 'John']">
+            <ul>
+                <li ng-repeat="user in users">{{user| uppercase}}</li>
+            </ul>
+            <!--user + filter > filtre les mots avec M -->
+            {{users| filter:'M'}}
+        </div>
+
+
+        <br/>
+        <!-- les filtres FILTER ET ORDERBY-->
+        <input type="text" ng-model="task"/>
+        <div ng-init="users = ['Marco', 'Jeanjean', 'John']">
+            <ul>
+                <!--flitre les utilisateurs qui s'appelent marc-->
+                <li ng-repeat="user in users| filter:'marc'">{{user| uppercase}}</li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres FILTER ng-model=query-->
+        <input type="text" ng-model="query"/>
+        <div ng-init="users = ['Marco', 'Jeanjean', 'John']">
+            <ul>
+                <!--flitre avec input ng-model=query-->
+                <li ng-repeat="user in users| filter:query">{{user| uppercase}}</li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres ORDERBY-->
+        <input type="text" ng-model="query"/>
+        <div ng-init="users=[{username:'Marco', content:'salut salut'},
+            {username: 'Jeanjean', content: 'kouloukoukou'}
+            ,
+            {username:'John', content: 'tructrcu'
+            }
+            ]">
+            <ul>
+                <!--ordonne par ordre croissant-->
+                <li ng-repeat="user in users| filter:query | orderBy:'+username'">
+                    {{user| uppercase}}
+                </li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres ORDERBY-->
+        <input type="text" ng-model="query"/>
+        <select ng-model="order">
+            <option value="username">Organise par nom</option>
+            <option value="content">Organise par contenu</option>
+        </select>
+        <div ng-init="users=[{username:'Marco', content:'salut salut'},
+            {username: 'Jeanjean', content: 'kouloukoukou'}
+            ,
+            {username:'John', content: 'tructrcu'
+            }
+            ]">
+            <ul>
+                <!--filtrer le username-->
+                <li ng-repeat="user in users| filter:{content:query} | orderBy:order">
+                    {{user| uppercase}}
+                </li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres ORDERBY-->
+        <input type="text" ng-model="query"/>
+        <select ng-model="order">
+            <option value="username">Organise par nom</option>
+            <option value="content">Organise par contenu</option>
+        </select>
+        <div ng-init="users=[{username:'Marco', content:'salut salut'},
+            {username: 'Jeanjean', content: 'kouloukoukou'}
+            ,
+            {username:'John', content:'tructrcu'
+            }
+            ]">
+            <ul>
+                <!--filtrer le content-->
+                <li ng-repeat="user in users| filter:{content:query} | orderBy:order">
+                    {{user| uppercase}}
+                </li>
+            </ul>
+        </div>
+
+
+        <br/>
+        <!-- les filtres -->
+        <input type="text" ng-model="query"/>
+        <select ng-model="order">
+            <option value="username">Organise par nom</option>
+            <option value="content">Organise par contenu</option>
+        </select>
+        <div ng-init="users=[{username:'Marco', content: 'salut salut'},
+            {username: 'Jeanjean', content: 'kouloukoukou'},
+            {username:'John', content: 'tructrcu'}
+            ]">
+
+            <!-- affichage des commentaires -->
+            <div ng-repeat="user in users| filter:{content:query} | orderBy:order">
+                <p>
+                    <strong>{{user.username}}</strong>
+                    {{user.content}}
+                </p>
+            </div>
+        </div>
+
+    </body>
+    <!--<body ng-app="monApp">
+      <div ng-controller="CommentsCtrl">
+      <input type="text" ng-model="query"/>
+      {{query}}
+      <select ng-model="order">
+        <option value="username">Organise par nom</option>
+        <option value="username">Organise par contenu</option>
+      </select>
+
+        <div ng-repeat="comment in comments |
+        filter:{content: query} | orderBy:oder">
+          <p>
+            <strong>{{comment.username}}</strong><br/>
+            {{comment.content}}
+          </p>
+        </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+      <script>
+      var app = angular.module('monApp', []);
+      app.controller('CommentsCtrl', function ($scope){
+            $scope.comments = [
+              {
+              "firstname": "connard1",
+              "city": "villedemerde1"
+              },
+              {
+              "firstname": "connard2",
+              "city": "villedemerde2"
+              }
+            ];
+        })
+
+      </script>
+    </body>-->
+</html>

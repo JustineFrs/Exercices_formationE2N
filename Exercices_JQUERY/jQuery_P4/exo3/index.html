@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice 3</title>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+  </head>
+  <body>
+    <input type="text" name="name" id="nom" placeholder="NOM"/>
+    <input type="text" name="name" id="prenom" placeholder="PRENOM"/>
+    <input type="text" name="name" id="add_mail" placeholder="ADRESSE MAIL"/>
+    <input type="text" name="name" id="numero" placeholder="NUMERO"/>
+    <input type="button" name="name" id="verif" value="Vérifier"/>
+    <script>
+    $(document).ready(function(){
+      var nom = $("#nom").val();
+      var prenom = $("#prenom").val();
+      var email = $("#add_mail").val();
+      var numero = $("#numero").val();
+      $("#numero").keypress(function (e) {
+        if (e.which != 8 && (e.which < 48 || e.which > 57)) {
+          return false;
+        }
+      });
+      $("#nom").keypress(function (d) {
+          if (d.which != 8 && d.which != 45 && (d.which < 65 || d.which > 90) && (d.which < 97 || d.which > 122)) {
+            return false;
+          }
+      });
+      $("#prenom").keypress(function (d) {
+          if (d.which != 8 && d.which != 45 && (d.which < 97 || d.which > 122) && (d.which < 65 || d.which > 90)) {
+            return false;
+          }
+      });
+      
+      /*$("#add_mail").keypress(function (mail) {
+          var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+          var bonmail = pattern.test(mail);
+          return bonmail;
+        });*/
+      /*$('#verif').click(function(){
+        alert(nom + numero + mail + prenom);
+      });*/
+    });
+  </script>
+  </body>
+</html>
+<!--Créer un formulaire qui demande le nom, le prénom, l'adresse mail
+et le numéro de téléphone de l'utilisateur.
+Verifier que l'adresse mail est bien une adresse mail,
+vérifier que le numéro de téléphone ne comporte que des chiffres,
+et que le nom et le prénom ne contiennent que des lettres ou des tirets.-->

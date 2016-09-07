@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="jquery-2.2.4.js" type="text/javascript"></script>
+    <title>Exercice 2</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="texte" value="0" />
+      <input type="Button" id="clic_plus" value="+" />
+      <input type="Button" id="clic_moins" value="-" />
+    </form>
+    <script>
+    $(document).ready(function(){
+      $('#clic_plus').click( function() { //au clic du +
+        var clicPlus = $('#texte').val(); //on demande valeur du champs
+        clicPlus++ ; //incrémente 1+1
+        $('#texte').val(clicPlus); //on affiche +1 dans champs
+      });
+      $('#clic_moins').click( function() {
+        var clicMoins = $('#texte').val();
+        clicMoins-- ;
+        $('#texte').val(clicMoins);
+      });
+    });
+    </script>
+  </body>
+</html>

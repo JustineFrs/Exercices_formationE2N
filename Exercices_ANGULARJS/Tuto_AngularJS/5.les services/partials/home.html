@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HomePage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app>
+        <div ng-repeat="post in posts">
+            <h1>{{post.name}}</h1>
+            <p>{{post.content}}</p>
+            <p>
+                <a href="#/comments/{{post.id}}"> {{post.comments.lenght}} truc</a>
+            </p>
+            <hr>
+        </div>
+    </body>
+</html>
